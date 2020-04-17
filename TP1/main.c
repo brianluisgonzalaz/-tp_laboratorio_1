@@ -53,45 +53,88 @@ int main()
                 scanf("%f",&b);
                 flagB = 1;
                 break;
-        case 3: printf("Calculando suma de %.3f+%.3f\n",a,b);
-                printf("Calculando resta de %.3f-%.3f\n",a,b);
-                printf("Calculando division de %.3f/%.3f\n",a,b);
-                printf("Calculando multiplicacion de %.3f*%.3f\n",a,b);
-                printf("Calculando factorial de %.3f!\n",a);
-                printf("Calculando factorial de %.3f!\n",b);
-                break;
-        case 4: suma = funcionSuma(a,b);
-                printf("El resultado de %.3f+%.3f es: %.3f\n",a,b,suma);
-                resta = funcionResta(a,b);
-                printf("El resultado de %.3f-%.3f es: %.3f\n",a,b,resta);
-                if(b==0)
+        case 3: if(flagA==1 && flagB ==1)
                 {
-                    printf("No es posible dividir por cero\n");
-                }
-                else
-                {
-                    division = funcionDivision(a,b);
-                    printf("El resultado de %.3f/%.3f es: %.3f\n",a,b,division);
-                }
-                multiplicacion = funcionMultiplicacion(a,b);
-                printf("El resultado de %.3f*%.3f es: %.3f\n",a,b,multiplicacion);
-                if(a>=0)
-                {
-                  factorialA = funcionFactorial(a);
-                  printf("El factorial de %.3f es: %d\n",a,factorialA);
+                    printf("Calculando suma de %.3f+%.3f\n",a,b);
+                    printf("Calculando resta de %.3f-%.3f\n",a,b);
+                    printf("Calculando division de %.3f/%.3f\n",a,b);
+                    printf("Calculando multiplicacion de %.3f*%.3f\n",a,b);
+                    printf("Calculando factorial de %.3f!\n",a);
+                    printf("Calculando factorial de %.3f!\n",b);
                 }else
                 {
-                    printf("No es posible factorizar un numero negativo\n");
+                    if(flagA==0 && flagB==1)
+                    {
+                        printf("Debe ingresar el primer numero: \n");
+                    }else
+                    {
+                        if(flagA==1 && flagB==0)
+                        {
+                            printf("Debe ingresar el segundo numero: \n");
+                        }else
+                        {
+                            printf("Error, no ingreso ningun numero\n");
+                        }
+                    }
                 }
-                if(b>=0)
-                {
-                    factorialB = funcionFactorial(b);
-                    printf("El factorial de %.3f es: %d\n",b,factorialB);
 
+                break;
+        case 4: if(flagA==1 && flagB ==1)
+                {
+                    suma = funcionSuma(a,b);
+                    printf("El resultado de %.3f+%.3f es: %.3f\n",a,b,suma);
+                    resta = funcionResta(a,b);
+                    printf("El resultado de %.3f-%.3f es: %.3f\n",a,b,resta);
+                    if(b==0)
+                    {
+                        printf("No es posible dividir por cero\n");
+                    }
+                    else
+                    {
+                        division = funcionDivision(a,b);
+                        printf("El resultado de %.3f/%.3f es: %.3f\n",a,b,division);
+                    }
+                    multiplicacion = funcionMultiplicacion(a,b);
+                    printf("El resultado de %.3f*%.3f es: %.3f\n",a,b,multiplicacion);
+                    if(a>=0)
+                    {
+                      factorialA = funcionFactorial(a);
+                      printf("El factorial de %.3f es: %d\n",a,factorialA);
+                    }else
+                    {
+                        printf("No es posible factorizar un numero negativo\n");
+                    }
+                    if(b>=0)
+                    {
+                        factorialB = funcionFactorial(b);
+                        printf("El factorial de %.3f es: %d\n",b,factorialB);
+
+                    }else
+                    {
+                        printf("No es posible factorizar un numero negativo\n");
+                    }
                 }else
                 {
-                    printf("No es posible factorizar un numero negativo\n");
+                    if(flagA==0 && flagB==1)
+                    {
+                        printf("Debe ingresar el primer numero: \n");
+                    }else
+                    {
+                        if(flagA==1 && flagB==0)
+                        {
+                            printf("Debe ingresar el segundo numero: \n");
+                        }else
+                        {
+                            printf("Error, no ingreso ningun numero\n");
+                        }
+                    }
                 }
+
+
+
+
+
+
 
 
 
