@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1589648809 source:c:\users\broko\desktop\tp2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayEmployees.h"
+	"menuAndInputs.h"
+
+1589678895 c:\users\broko\desktop\tp2\arrayemployees.h
+
+1589678895 c:\users\broko\desktop\tp2\menuandinputs.h
+
+1589674734 source:c:\users\broko\desktop\tp2\menuandinputs.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayEmployees.h"
+	"menuAndInputs.h"
+
+1589676968 source:c:\users\broko\desktop\tp2\arrayemployees.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayEmployees.h"
+	"menuAndInputs.h"
+
