@@ -24,3 +24,28 @@
 	"ArrayEmployees.h"
 	"menuAndInputs.h"
 
+1589683873 source:c:\users\broko\desktop\-tp_laboratorio_1\tp2\arrayemployees.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayEmployees.h"
+	"menuAndInputs.h"
+
+1589684154 c:\users\broko\desktop\-tp_laboratorio_1\tp2\arrayemployees.h
+
+1589683833 c:\users\broko\desktop\-tp_laboratorio_1\tp2\menuandinputs.h
+
+1589648809 source:c:\users\broko\desktop\-tp_laboratorio_1\tp2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayEmployees.h"
+	"menuAndInputs.h"
+
+1589683974 source:c:\users\broko\desktop\-tp_laboratorio_1\tp2\menuandinputs.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayEmployees.h"
+	"menuAndInputs.h"
+

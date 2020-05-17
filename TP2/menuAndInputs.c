@@ -23,18 +23,21 @@ void menu (eEmployee listaDeEmpleados[], int len)
         switch(opcion)
         {
             case 1:
-                    switch(cargarEmpleado(listaDeEmpleados, len))
+                    switch(addEmployee(listaDeEmpleados, len))
                     {
                     case -1:
                             printf("Error, no se puedo realizar la carga");
                     break;
                     case 0:
+                            printf("No hay espacio en memoria\n");
+
+                    break;
+                    case 1:
                             printf("Empleado cargado exitosamente\n");
                             empleadoCargado = 1;
                     break;
-                    case 1:
+                    case 2:
                             printf("El usuario cancelo el alta\n");
-                            empleadoCargado = 1;
                     break;
                     }
             printf("\n");
@@ -58,16 +61,16 @@ void menu (eEmployee listaDeEmpleados[], int len)
                         switch(bajaEmpleados(listaDeEmpleados, T))
                         {
                         case -1:
-                                printf("Error, no se puedo eliminar el empleado\n");
+                                printf("El usuario cancelo la operacion\n"/*Error, no se puedo eliminar el empleado\n"*/);
                         break;
                         case 0:
                                 printf("Empleado eliminado exitosamente\n");
 
                         break;
-                        case 1:
+                        /*case 1:
                                 printf("El usuario cancelo la operacion\n");
 
-                        break;
+                        break;*/
                         }
                     }else
                     {
@@ -129,6 +132,7 @@ void menuModificacion (eEmployee listaDeEmpleados[], int len)
     printEmployees(listaDeEmpleados,len);
 
     id = findEmployeeById(listaDeEmpleados,len);
+    printf("%d",id);
     for(i=0;i<len;i++)
     {
             if (id==listaDeEmpleados[i].id&&listaDeEmpleados[i].isEmpty==FALSE)
@@ -221,7 +225,7 @@ int idEmpleado(eEmployee listaDeEmpleados[], int len)
     {
         if(listaDeEmpleados[i].isEmpty==TRUE)
         {
-            id = i+1;
+            id = i;
             break;
         }
 
@@ -229,56 +233,6 @@ int idEmpleado(eEmployee listaDeEmpleados[], int len)
     return id;
 }
 
-int cargarEmpleado(eEmployee listaDeEmpleados[],int len)
-{
-    int id;
-    char nombre[50];
-    char apellido[50];
-    float salario;
-    int sector;
-    int lugar;
-    int retorno;
-    char cargar;
-    char opcion_continuar;
-
-    retorno = -1;
-
-    do
-    {
-        id= idEmpleado(listaDeEmpleados,len);
-        getValidarString("Ingrese su nombre: \n",nombre,50);
-        primerLetraMayuscula(nombre);
-        getValidarString("Ingrese su apellido: \n",apellido,50);
-        primerLetraMayuscula(apellido);
-        salario = getValidarFloat("Ingrese su salario: \n",5000,999999);
-        sector = getValidarInt("Ingrese su sector: \n","Error, los sectores son entre",1,3);
-
-        lugar = addEmployee(listaDeEmpleados,len,id,nombre,apellido,salario,sector);
-
-        if(lugar!=-1)
-        {
-            mostrarUnEmpleado(listaDeEmpleados[id-1]);
-            cargar = getRespuesta("Desea cargar este empleado?: (S/N)\n");
-
-
-            if(cargar!='s' && cargar!='S')
-            {
-                listaDeEmpleados[lugar].isEmpty=TRUE;
-                retorno = 1;
-
-            }else
-             {
-                listaDeEmpleados[lugar].isEmpty=FALSE;
-                retorno = 0;
-             }
-        }
-        system("pause");
-        system("cls");
-        opcion_continuar = getRespuesta("Desea cargar otro empleado?: (S/N)\n");
-    }while(opcion_continuar=='s'||opcion_continuar=='S');
-
-    return retorno;
-}
 int empleadosCargados(eEmployee listaDeEmpleados[],int len)
 {
         int i;
@@ -318,11 +272,11 @@ int bajaEmpleados(eEmployee listaDeEmpleados[],int len)
     do
     {
         printEmployees(listaDeEmpleados,len);
-        id = getValidarInt("Ingrese el id que desea borrar: \n","Error, los ID disponibles son entre",0,len);
+        id = findEmployeeById(listaDeEmpleados,len);
 
     for(i=0;i<len;i++)
     {
-        if(id==listaDeEmpleados[i].id&&listaDeEmpleados[i].isEmpty==FALSE)
+        if(listaDeEmpleados[i].id==id&&listaDeEmpleados[i].isEmpty==FALSE)
         {
             mostrarUnEmpleado(listaDeEmpleados[i]);
             respuesta = getRespuesta("Desea eliminar este empleado?: (S/N) \n");
@@ -347,7 +301,7 @@ int bajaEmpleados(eEmployee listaDeEmpleados[],int len)
 
     continuar = getRespuesta("Desea eliminar otro empleado? (S/N)\n");
     system("cls");
-    }while((continuar=='s'||continuar=='S')&& (listaDeEmpleados[i].isEmpty==FALSE));
+    }while((continuar=='s'||continuar=='S')/*&& (listaDeEmpleados[i].isEmpty==FALSE)*/);
     return retorno;
 }
 char getRespuesta(char mensaje [])

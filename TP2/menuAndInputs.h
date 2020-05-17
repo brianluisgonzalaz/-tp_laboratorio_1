@@ -2,7 +2,6 @@ void menu (eEmployee listaDeEmpleados[], int len);
 void menuModificacion (eEmployee listaDeEmpleados[], int len);
 int indiceLibre(eEmployee listaDeEmpleados[], int len);
 int idEmpleado(eEmployee listaDeEmpleados[], int len);
-int cargarEmpleado(eEmployee listaDeEmpleados[],int len);
 int empleadosCargados(eEmployee listaDeEmpleados[],int len);
 void mostrarUnEmpleado(eEmployee unEmpleado);
 void ordenarPorSalario (eEmployee listaDeEmpleados[], int len);
